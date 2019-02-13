@@ -8,16 +8,16 @@
 	$tijd = date("H:i:s");
 
 
-	if(strtotime($tijd) >= strtotime($ochtend) && strtotime($tijd) < strtotime($middag)){
+	if($tijd >= $ochtend && $tijd < $middag){
 		$goede = "morgen";
 	}
-	elseif(strtotime($tijd) >= strtotime($middag) && strtotime($tijd) < strtotime($avond)){
+	elseif($tijd >= $middag && $tijd < $avond){
 		$goede = "middag";
 	}
-	elseif(strtotime($tijd) >= strtotime($avond) && strtotime($tijd) > strtotime($nacht)){
+	elseif($tijd >= $avond && $tijd > $nacht){
 		$goede = "avond";
 	}
-	elseif(strtotime($tijd) >= strtotime($nacht) && strtotime($tijd) < strtotime($ochtend)){
+	elseif($tijd >= $nacht && $tijd < $ochtend){
 		$goede = "nacht";
 	}
 ?>
@@ -54,10 +54,16 @@
 			font-style: oblique;
 			font-size: 40px;
 		}
+
+		div{
+			margin-top: 20%;
+		}
 	</style>
 </head>
 <body class="<?php echo $goede ?>">
-		<h1>Goede <?php echo $goede ?></h1>
-		<h1>Het is nu <?php echo $tijd ?></h1>
+		<div>
+			<h1>Goede <?php echo $goede ?></h1>
+			<h1>Het is nu <?php echo $tijd ?></h1>
+		</div>
 </body>
 </html>
